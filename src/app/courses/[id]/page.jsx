@@ -2,22 +2,22 @@ import { getCourseById } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Star, BarChart, ChevronLeft, PlayCircle, FileText, Award } from "lucide-react";
+import { Clock, Star, BarChart, ChevronLeft, PlayCircle, FileText, Award, CheckCircle2 } from "lucide-react";
 import { Suspense } from "react";
 import SkeletonLoader from "@/components/SkeletonLoader";
 
 export default async function CourseDetailsPage({ params }) {
   // Await the params object in Next.js 16 app router dynamic routes
   const { id } = await params;
-  
+
   return (
     <Suspense fallback={
       <div className="container mx-auto px-4 py-12 flex justify-center">
         <div className="w-full max-w-4xl animate-pulse">
-           <div className="h-8 bg-base-300 w-32 rounded mb-8"></div>
-           <div className="h-[400px] bg-base-300 w-full rounded-3xl mb-8"></div>
-           <div className="h-10 bg-base-300 w-3/4 rounded mb-4"></div>
-           <div className="h-4 bg-base-300 w-1/2 rounded mb-8"></div>
+          <div className="h-8 bg-base-300 w-32 rounded mb-8"></div>
+          <div className="h-[400px] bg-base-300 w-full rounded-3xl mb-8"></div>
+          <div className="h-10 bg-base-300 w-3/4 rounded mb-4"></div>
+          <div className="h-4 bg-base-300 w-1/2 rounded mb-8"></div>
         </div>
       </div>
     }>
@@ -88,7 +88,7 @@ async function CourseContent({ id }) {
                 {"\n\n"}
                 This comprehensive course is designed to take you from fundamentals to advanced concepts. You will build real-world projects and gain practical experience.
               </p>
-              
+
               <h3 className="text-xl font-bold mb-4">What you will learn</h3>
               <ul className="space-y-3">
                 {[1, 2, 3, 4].map((i) => (
@@ -104,21 +104,21 @@ async function CourseContent({ id }) {
               <h3 className="font-bold text-lg mb-4">Course Content</h3>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-lg text-primary"><PlayCircle className="w-5 h-5"/></div>
+                  <div className="bg-primary/10 p-2 rounded-lg text-primary"><PlayCircle className="w-5 h-5" /></div>
                   <div>
                     <p className="font-medium">120 Lessons</p>
                     <p className="text-sm text-base-content/60">On-demand video</p>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">
-                  <div className="bg-secondary/10 p-2 rounded-lg text-secondary"><FileText className="w-5 h-5"/></div>
+                  <div className="bg-secondary/10 p-2 rounded-lg text-secondary"><FileText className="w-5 h-5" /></div>
                   <div>
                     <p className="font-medium">45 Assignments</p>
                     <p className="text-sm text-base-content/60">Practical exercises</p>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">
-                  <div className="bg-accent/10 p-2 rounded-lg text-accent"><Award className="w-5 h-5"/></div>
+                  <div className="bg-accent/10 p-2 rounded-lg text-accent"><Award className="w-5 h-5" /></div>
                   <div>
                     <p className="font-medium">Certificate</p>
                     <p className="text-sm text-base-content/60">Upon completion</p>
