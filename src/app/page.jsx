@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CourseCard from "@/components/CourseCard";
 import { getPopularCourses } from "@/lib/data";
-import { ArrowRight, CheckCircle2, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingUp, Users, Clock, Target, PenTool, Code2 } from "lucide-react";
 import { Suspense } from "react";
 import SkeletonLoader from "@/components/SkeletonLoader";
 
@@ -64,12 +64,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trending Courses */}
+      {/* Popular Courses */}
       <section className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Trending Courses</h2>
-            <p className="text-base-content/70">Our most popular courses selected for you.</p>
+            <h2 className="text-3xl font-bold mb-2">Popular Courses</h2>
+            <p className="text-base-content/70">Our most highly-rated courses selected for you.</p>
           </div>
           <Link href="/courses" className="btn btn-ghost hidden sm:flex">
             View All
@@ -88,6 +88,110 @@ export default function Home() {
           <Link href="/courses" className="btn btn-outline w-full">
             View All Courses
           </Link>
+        </div>
+      </section>
+
+      {/* Learning Tips Section */}
+      <section className="bg-base-200/50 py-20 border-y border-base-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Learning Tips</h2>
+            <p className="text-base-content/70 max-w-2xl mx-auto text-lg">Master your learning journey with these proven strategies for success.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+              <div className="card-body items-center text-center p-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+                  <Clock className="w-8 h-8" />
+                </div>
+                <h3 className="card-title text-xl font-bold">Time Management</h3>
+                <p className="text-base-content/70 mt-2">Allocate specific blocks of time for focused learning and stick to your schedule.</p>
+              </div>
+            </div>
+            
+            <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+              <div className="card-body items-center text-center p-6">
+                <div className="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+                  <Target className="w-8 h-8" />
+                </div>
+                <h3 className="card-title text-xl font-bold">Consistent Practice</h3>
+                <p className="text-base-content/70 mt-2">Small, daily learning sessions are far more effective than occasional cramming.</p>
+              </div>
+            </div>
+            
+            <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+              <div className="card-body items-center text-center p-6">
+                <div className="w-16 h-16 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-4">
+                  <PenTool className="w-8 h-8" />
+                </div>
+                <h3 className="card-title text-xl font-bold">Take Notes</h3>
+                <p className="text-base-content/70 mt-2">Write down key concepts in your own words to improve retention and understanding.</p>
+              </div>
+            </div>
+            
+            <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+              <div className="card-body items-center text-center p-6">
+                <div className="w-16 h-16 rounded-full bg-info/10 text-info flex items-center justify-center mb-4">
+                  <Code2 className="w-8 h-8" />
+                </div>
+                <h3 className="card-title text-xl font-bold">Build Projects</h3>
+                <p className="text-base-content/70 mt-2">Apply what you learn immediately by building real-world projects and portfolios.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Top Instructors Section */}
+      <section className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Top Instructors</h2>
+          <p className="text-base-content/70 max-w-2xl mx-auto text-lg">Learn from industry experts with years of real-world experience.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+            <div className="card-body items-center text-center p-6">
+              <div className="avatar mb-4">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://i.pravatar.cc/150?img=5" alt="Dr. Angela Yu" className="object-cover w-full h-full" />
+                </div>
+              </div>
+              <h3 className="card-title text-xl font-bold">Dr. Angela Yu</h3>
+              <span className="text-primary font-medium text-sm mb-2">Web Development</span>
+              <p className="text-base-content/70 text-sm">Lead instructor at the London App Brewery, teaching millions to code and build successful careers.</p>
+            </div>
+          </div>
+          
+          <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+            <div className="card-body items-center text-center p-6">
+              <div className="avatar mb-4">
+                <div className="w-24 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://i.pravatar.cc/150?img=11" alt="Andrew Ng" className="object-cover w-full h-full" />
+                </div>
+              </div>
+              <h3 className="card-title text-xl font-bold">Andrew Ng</h3>
+              <span className="text-secondary font-medium text-sm mb-2">Data Science & AI</span>
+              <p className="text-base-content/70 text-sm">Pioneer in machine learning and online education. Founder of DeepLearning.AI.</p>
+            </div>
+          </div>
+          
+          <div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-base-200">
+            <div className="card-body items-center text-center p-6">
+              <div className="avatar mb-4">
+                <div className="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://i.pravatar.cc/150?img=68" alt="Gary Simon" className="object-cover w-full h-full" />
+                </div>
+              </div>
+              <h3 className="card-title text-xl font-bold">Gary Simon</h3>
+              <span className="text-accent font-medium text-sm mb-2">UI/UX Design</span>
+              <p className="text-base-content/70 text-sm">Full-stack designer with over 20 years of experience creating stunning user interfaces.</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

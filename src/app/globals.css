@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@source "../";
 
 /* Custom utility for subtle scale animations */
 @utility hover-scale {

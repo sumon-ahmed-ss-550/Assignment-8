@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { User, Mail, Calendar, Settings, BookOpen } from "lucide-react";
+import Link from "next/link";
 
 export default async function ProfilePage() {
   const session = await auth.api.getSession({
@@ -93,7 +94,7 @@ export default async function ProfilePage() {
               </div>
               
               <div className="mt-8 flex justify-end">
-                <button className="btn btn-primary">Update Profile</button>
+                <Link href="/profile/update" className="btn btn-primary">Update Profile</Link>
               </div>
             </div>
           </div>

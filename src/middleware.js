@@ -17,5 +17,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ["/profile", "/courses/:id*"], // Only protect these routes. Wait, dynamic course route: /courses/[id]. So /courses/:id
+    matcher: ["/profile", "/profile/update", "/courses/:id*"],
 };
