@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 import Link from "next/link";
 import { Mail, Lock, User, Loader2, UserPlus } from "lucide-react";
 
@@ -28,11 +29,14 @@ export default function RegisterPage() {
         password: formData.password,
         image: formData.image,
       })
+      toast.success("Registration successful! Please login.");
       router.push("/login")
 
     } catch (error) {
       console.log(error)
       setError(error.message)
+      toast.error(error.message || "Failed to register.");
+      setLoading(false);
     }
 
   };

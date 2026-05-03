@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Mail, Lock, Loader2, LogIn } from "lucide-react";
+import { toast } from "react-hot-toast";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -24,13 +25,16 @@ export default function LoginPage() {
 
     if (signInError) {
       setError(signInError.message || "Failed to login. Please check your credentials.");
+      toast.error(signInError.message || "Failed to login.");
       setLoading(false);
     } else {
+      toast.success("Successfully logged in!");
       router.push("/");
     }
   };
 
   const handleGoogleLogin = async () => {
+    toast.loading("Redirecting to Google...", { duration: 2000 });
     await authClient.signIn.social({ provider: "google" });
   };
 

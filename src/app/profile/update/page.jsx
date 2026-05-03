@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { User, Loader2, ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 export default function UpdateProfilePage() {
   const { data: session, isPending } = authClient.useSession();
@@ -48,8 +49,10 @@ export default function UpdateProfilePage() {
 
       if (updateError) {
         setError(updateError.message || "Failed to update profile.");
+        toast.error(updateError.message || "Failed to update profile.");
         setLoading(false);
       } else {
+        toast.success("Profile updated successfully!");
         router.push("/profile");
         router.refresh();
       }
