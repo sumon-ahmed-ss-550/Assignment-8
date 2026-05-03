@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { User, Mail, Calendar, Settings, BookOpen } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function ProfilePage() {
   const session = await auth.api.getSession({
@@ -18,7 +19,7 @@ export default async function ProfilePage() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
       <div className="flex flex-col md:flex-row items-start gap-8">
-        
+
         {/* Sidebar */}
         <div className="w-full md:w-1/3 space-y-6">
           <div className="card bg-base-100 shadow-xl border border-base-200">
@@ -26,7 +27,8 @@ export default async function ProfilePage() {
               <div className="avatar mb-4">
                 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <div className="bg-primary text-primary-content flex items-center justify-center h-full w-full text-3xl font-bold">
-                    {user.name?.charAt(0).toUpperCase()}
+                    {/* {user.name?.charAt(0).toUpperCase()} */}
+                    <Image width={50} height={50} src={user.image} alt="Profile" className="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
               </div>
@@ -34,9 +36,9 @@ export default async function ProfilePage() {
               <p className="text-base-content/60 flex items-center gap-2 mt-2">
                 <Mail className="w-4 h-4" /> {user.email}
               </p>
-              
+
               <div className="divider"></div>
-              
+
               <div className="w-full space-y-2">
                 <button className="btn btn-primary w-full text-left justify-start">
                   <User className="w-5 h-5 mr-2" /> Personal Info
@@ -57,7 +59,7 @@ export default async function ProfilePage() {
           <div className="card bg-base-100 shadow-xl border border-base-200">
             <div className="card-body">
               <h3 className="text-2xl font-bold mb-6">Personal Information</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="form-control">
                   <label className="label">
@@ -77,11 +79,11 @@ export default async function ProfilePage() {
                   </label>
                   <div className="relative">
                     <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40" />
-                    <input 
-                      type="text" 
-                      value={new Date(user.createdAt).toLocaleDateString()} 
-                      className="input input-bordered w-full pl-10 bg-base-200/50" 
-                      readOnly 
+                    <input
+                      type="text"
+                      value={new Date(user.createdAt).toLocaleDateString()}
+                      className="input input-bordered w-full pl-10 bg-base-200/50"
+                      readOnly
                     />
                   </div>
                 </div>
@@ -92,7 +94,7 @@ export default async function ProfilePage() {
                   <input type="text" value={user.role || "Student"} className="input input-bordered w-full bg-base-200/50" readOnly />
                 </div>
               </div>
-              
+
               <div className="mt-8 flex justify-end">
                 <Link href="/profile/update" className="btn btn-primary">Update Profile</Link>
               </div>
@@ -111,7 +113,7 @@ export default async function ProfilePage() {
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   );

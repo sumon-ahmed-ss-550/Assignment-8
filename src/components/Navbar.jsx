@@ -3,6 +3,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { BookOpen, LogOut, User as UserIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const { data: session, isPending } = authClient.useSession();
@@ -15,6 +16,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-200">
+
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,6 +33,7 @@ export default function Navbar() {
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">SkillSphere</span>
         </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium">
           <li><Link href="/">Home</Link></li>
@@ -38,6 +41,7 @@ export default function Navbar() {
           <li><Link href="/profile">Profile</Link></li>
         </ul>
       </div>
+
       <div className="navbar-end gap-2">
         {isPending ? (
           <span className="loading loading-spinner loading-sm"></span>
@@ -45,12 +49,14 @@ export default function Navbar() {
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar placeholder">
               <div className="bg-primary text-primary-content rounded-full w-10">
-                <span className="text-xl">{session.user.name?.charAt(0).toUpperCase()}</span>
+                {/* <span className="text-xl">{session.user.name?.charAt(0).toUpperCase()}</span> */}
+                <Image width={40} height={40} src={session.user.image} alt="Profile" className="w-full h-full object-cover rounded-full" />
               </div>
             </div>
             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
               <li className="px-4 py-2 font-semibold border-b border-base-200 mb-2">
                 Hi, {session.user.name}
+
               </li>
               <li>
                 <Link href="/profile" className="flex items-center gap-2">

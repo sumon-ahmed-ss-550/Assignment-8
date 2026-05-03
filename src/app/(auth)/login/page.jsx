@@ -31,7 +31,6 @@ export default function LoginPage() {
   };
 
   const handleGoogleLogin = async () => {
-    // Note: Since this is mocked, it might fail unless configured in better-auth dashboard or env.
     await authClient.signIn.social({ provider: "google" });
   };
 
