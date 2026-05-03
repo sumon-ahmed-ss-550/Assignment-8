@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SkillSphere - Modern Online Learning Platform
 
-## Getting Started
+Welcome to **SkillSphere**, a beautifully designed, modern online learning platform built to provide world-class courses for professionals. Learn at your own pace, anytime, anywhere.
 
-First, run the development server:
+## 🌐 Live URL
+**[SkillSphere Live Demo](https://assignment-8-sigma-nine.vercel.app)** *(Replace with your actual deployment URL if different)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Purpose
+SkillSphere is designed to demonstrate a robust, modern full-stack application. It provides an intuitive and responsive UI for browsing courses, dynamic searching, secure authentication, and managing user profiles. It serves as an excellent foundation for e-learning platforms.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
+- **Modern User Interface**: Stunning, clean, and interactive UI built with Tailwind CSS v4 and DaisyUI v5, featuring micro-animations and hover effects.
+- **Responsive Design**: Flawless experience across mobile, tablet, and desktop devices.
+- **Authentication**: Secure email/password and Google OAuth login powered by Better Auth.
+- **Course Discovery**: Browse trending courses or explore all courses with instant client-side search and category filtering.
+- **Protected Routes**: Secure profile and course detail pages that require authentication.
+- **Dynamic User Profiles**: Users can update their profile information and display custom avatars.
+- **Server-Side Rendering & Suspense**: Fast data fetching with beautiful skeleton loaders during transit.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Technology Stack & Packages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project leverages the latest web technologies:
 
-## Learn More
+### Core Framework
+- **[Next.js 16](https://nextjs.org/)** - App Router architecture for server and client components.
+- **[React 19](https://react.dev/)** - The library for web and native user interfaces.
 
-To learn more about Next.js, take a look at the following resources:
+### Styling & UI
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework (using the new CSS-first PostCSS setup).
+- **[DaisyUI v5](https://daisyui.com/)** - The most popular component library for Tailwind CSS.
+- **[Lucide React](https://lucide.dev/)** - Beautiful, consistent, and clean SVG icons.
+- **clsx & tailwind-merge** - Utilities for conditional and dynamic tailwind class merging.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Authentication & Database
+- **[Better Auth](https://better-auth.com/)** - Comprehensive and secure authentication framework.
+- **MongoDB** - Primary database using `mongodb` driver and `@better-auth/mongo-adapter`.
+- *(Note: `better-sqlite3` was used during initial local prototyping)*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+1. **Clone the repository** and install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Configure Environment Variables**:
+   Create a `.env` file in the root directory and add the following:
+   ```env
+   BETTER_AUTH_SECRET=your_super_secret_string
+   BETTER_AUTH_URL=http://localhost:3000
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   MONGODB_URI=your_mongodb_connection_string
+   
+   # Optional: For Google Login
+   CLIENT_ID=your_google_client_id
+   CLIENT_SECRET=your_google_client_secret
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser** and navigate to [http://localhost:3000](http://localhost:3000).
