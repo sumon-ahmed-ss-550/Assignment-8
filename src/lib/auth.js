@@ -1,21 +1,16 @@
 import { betterAuth } from "better-auth";
-import Database from "better-sqlite3";
-import path from "path";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-// Define the absolute path for the SQLite database so it stays consistent
-const dbPath = path.resolve(process.cwd(), "sqlite.db");
-const db = new Database(dbPath);
+const client = new MongoClient(process.env.MONGODB_URI);
+const db = client.db();
 
 export const auth = betterAuth({
-    database: db,
     emailAndPassword: {
         enabled: true,
+        autoSignIn: false
     },
-    // We mock Google login config for demonstration without failing
-    socialProviders: {
-        google: {
-            clientId: process.env.GOOGLE_CLIENT_ID || "mock-id",
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET || "mock-secret",
-        }
-    }
+    database: mongodbAdapter(db, {
+        client
+    }),
 });
