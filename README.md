@@ -1,64 +1,76 @@
-# SkillSphere - Modern Online Learning Platform
+# SkillSphere – Online Learning Platform
 
-Welcome to **SkillSphere**, a beautifully designed, modern online learning platform built to provide world-class courses for professionals. Learn at your own pace, anytime, anywhere.
+## Project Overview
 
-## 🌐 Live URL
-**[SkillSphere Live Demo](https://assignment-8-sigma-nine.vercel.app)** *(Replace with your actual deployment URL if different)*
+SkillSphere is a modern online learning platform where users can explore different courses, view course details, and improve their skills in areas like Web Development, Design, and Marketing. The application is designed to be simple, clean, and user-friendly.
 
-## 🎯 Purpose
-SkillSphere is designed to demonstrate a robust, modern full-stack application. It provides an intuitive and responsive UI for browsing courses, dynamic searching, secure authentication, and managing user profiles. It serves as an excellent foundation for e-learning platforms.
+## Purpose
 
-## ✨ Key Features
-- **Modern User Interface**: Stunning, clean, and interactive UI built with Tailwind CSS v4 and DaisyUI v5, featuring micro-animations and hover effects.
-- **Responsive Design**: Flawless experience across mobile, tablet, and desktop devices.
-- **Authentication**: Secure email/password and Google OAuth login powered by Better Auth.
-- **Course Discovery**: Browse trending courses or explore all courses with instant client-side search and category filtering.
-- **Protected Routes**: Secure profile and course detail pages that require authentication.
-- **Dynamic User Profiles**: Users can update their profile information and display custom avatars.
-- **Server-Side Rendering & Suspense**: Fast data fetching with beautiful skeleton loaders during transit.
+The main purpose of this project is to practice building a full-stack application using Next.js. It focuses on authentication, protected routes, data handling, and responsive UI design.
 
-## 🛠️ Technology Stack & Packages
+## Live URL
 
-This project leverages the latest web technologies:
+(Add your live site link here)
 
-### Core Framework
-- **[Next.js 16](https://nextjs.org/)** - App Router architecture for server and client components.
-- **[React 19](https://react.dev/)** - The library for web and native user interfaces.
+## Key Features
 
-### Styling & UI
-- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework (using the new CSS-first PostCSS setup).
-- **[DaisyUI v5](https://daisyui.com/)** - The most popular component library for Tailwind CSS.
-- **[Lucide React](https://lucide.dev/)** - Beautiful, consistent, and clean SVG icons.
-- **clsx & tailwind-merge** - Utilities for conditional and dynamic tailwind class merging.
+* User authentication with email and password
+* Google login system
+* Protected course details page
+* Browse all available courses
+* View popular and trending courses
+* Search courses by title
+* Responsive design for all devices
+* User profile page
+* Update profile information feature
+* Loading and error handling UI
 
-### Authentication & Database
-- **[Better Auth](https://better-auth.com/)** - Comprehensive and secure authentication framework.
-- **MongoDB** - Primary database using `mongodb` driver and `@better-auth/mongo-adapter`.
-- *(Note: `better-sqlite3` was used during initial local prototyping)*
+## Pages
 
-## 🚀 Getting Started
+* Home Page
+* All Courses Page
+* Course Details Page (Protected)
+* Login Page
+* Register Page
+* My Profile Page
+* Update Profile Page
+* Not Found Page
 
-1. **Clone the repository** and install dependencies:
-   ```bash
-   npm install
-   ```
+## Authentication
 
-2. **Configure Environment Variables**:
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   BETTER_AUTH_SECRET=your_super_secret_string
-   BETTER_AUTH_URL=http://localhost:3000
-   NEXT_PUBLIC_BASE_URL=http://localhost:3000
-   MONGODB_URI=your_mongodb_connection_string
-   
-   # Optional: For Google Login
-   CLIENT_ID=your_google_client_id
-   CLIENT_SECRET=your_google_client_secret
-   ```
+Authentication is implemented using BetterAuth. Users can register, log in, and access protected routes after authentication. Google login is also available.
 
-3. **Run the Development Server**:
-   ```bash
-   npm run dev
-   ```
+## Technologies Used
 
-4. **Open your browser** and navigate to [http://localhost:3000](http://localhost:3000).
+* Next.js (App Router)
+* Tailwind CSS
+* DaisyUI or HeroUI
+* BetterAuth
+
+## NPM Packages
+
+* better-auth
+* react-hot-toast
+* react-icons
+* swiper or framer-motion
+
+## Setup Instructions
+
+1. Clone the repository
+2. Run npm install
+3. Create a .env.local file and add environment variables
+4. Run npm run dev
+
+## Responsiveness
+
+The project is fully responsive and works on mobile, tablet, and desktop devices.
+
+## Notes
+
+* Email verification and password recovery are not implemented
+* The project focuses on the main assignment requirements
+* Course data is managed using local JSON or mock data
+
+## Author
+
+This project was developed as part of an assignment to practice modern web development using Next.js.
