@@ -5,6 +5,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { User, Loader2, ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 export default function UpdateProfilePage() {
   const { data: session, isPending } = authClient.useSession();
@@ -28,13 +29,21 @@ export default function UpdateProfilePage() {
   }
 
   const handleUpdate = async (e) => {
+
+
+
     e.preventDefault();
     setLoading(true);
     setError("");
 
+    const form = new FormData(e.currentTarget);
+    const formData = Object.fromEntries(form.entries());
+    const image = formData.image;
+
     try {
       const { error: updateError } = await authClient.updateUser({
         name: name,
+        image: image,
       });
 
       if (updateError) {
@@ -62,7 +71,8 @@ export default function UpdateProfilePage() {
             <div className="avatar">
               <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <div className="bg-primary text-primary-content flex items-center justify-center h-full w-full text-2xl font-bold">
-                  {session.user.name?.charAt(0).toUpperCase()}
+                  {/* {session.user.name?.charAt(0).toUpperCase()} */}
+                  <Image width={50} height={50} src={session.user.image} alt="Profile" className="w-full h-full object-cover rounded-full" />
                 </div>
               </div>
             </div>
@@ -85,10 +95,10 @@ export default function UpdateProfilePage() {
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40" />
-                <input 
-                  type="text" 
-                  className="input input-bordered w-full pl-10 focus:input-primary" 
-                  required 
+                <input
+                  type="text"
+                  className="input input-bordered w-full pl-10 focus:input-primary"
+                  required
                   value={name || session.user.name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -97,20 +107,25 @@ export default function UpdateProfilePage() {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-medium text-base-content/50">Email Address (Cannot be changed)</span>
+                <span className="label-text font-medium">Image URL</span>
               </label>
-              <input 
-                type="email" 
-                className="input input-bordered w-full bg-base-200/50 cursor-not-allowed text-base-content/50" 
-                readOnly 
-                value={session.user.email}
-              />
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40" />
+                <input
+                  type="text"
+                  placeholder="https://example.com/image.jpg"
+                  className="input input-bordered w-full pl-10 focus:input-secondary"
+                  required
+                  name="image"
+
+                />
+              </div>
             </div>
 
             <div className="flex justify-end gap-4 mt-8">
               <Link href="/profile" className="btn btn-ghost">Cancel</Link>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn btn-primary shadow-lg shadow-primary/30"
                 disabled={loading || name === session.user.name}
               >
