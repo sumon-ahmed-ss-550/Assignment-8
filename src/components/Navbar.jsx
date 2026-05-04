@@ -25,7 +25,7 @@ export default function Navbar() {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/courses">All Courses</Link></li>
-            <li><Link href="/profile">Profile</Link></li>
+            <li><Link href="/profile">My Profile</Link></li>
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost text-xl font-bold flex items-center gap-2">
@@ -38,7 +38,7 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1 font-medium">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/courses">Courses</Link></li>
-          <li><Link href="/profile">Profile</Link></li>
+          <li><Link href="/profile">My Profile</Link></li>
         </ul>
       </div>
 
